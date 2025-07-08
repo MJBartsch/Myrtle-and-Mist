@@ -1,4 +1,280 @@
-<!DOCTYPE html>
+<!-- Video Section -->
+    <section class="video-section" id="vlogs">
+        <div class="container">
+            <div class="video-container">
+                <div class="video-content">
+                    <h2>Latest Vlogs</h2>
+                    <p>Join our growing community of plant lovers and spiritual seekers. Each week, we share new insights, practical tips, and magical moments from our journey with plants and spirit.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="cta-button">Subscribe for Updates</a>
+                        <a href="#" class="cta-button cta-secondary">View All Videos</a>
+                    </div>
+                </div>
+                <div class="video-placeholder">
+                    <h3>Featured Video</h3>
+                    <p>🌿 "Creating Sacred Space with Houseplants" 🌿</p>
+                    <p>Learn how to combine plant care with spiritual practice to transform your living space into a sanctuary of growth and tranquility.</p>
+                    <div style="margin-top: 2rem;">
+                        <button class="play-button">▶ Watch Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter" id="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Join Our Growing Community</h2>
+                <p>Get weekly tips, exclusive content, and be the first to know about new vlogs, featured products, and spiritual plant wisdom.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Content</h3>
+                    <a href="#">Plant Care Guides</a>
+                    <a href="#">Spiritual Practices</a>
+                    <a href="#">Video Library</a>
+                    <a href="#">Guest Posts</a>
+                    <a href="#">Monthly Challenges</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <a href="#">Instagram</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">Newsletter</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Discord Server</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Shop</h3>
+                    <a href="#">Recommended Plants</a>
+                    <a href="#">Spiritual Tools</a>
+                    <a href="#">Affiliate Partners</a>
+                    <a href="#">Featured Products</a>
+                    <a href="#">Gift Cards</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="#">Plant Encyclopedia</a>
+                    <a href="#">Troubleshooting Guide</a>
+                    <a href="#">Seasonal Calendar</a>
+                    <a href="#">Moon Phase Tracker</a>
+                    <a href="#">FAQ</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Myrtle & Mist. All rights reserved. Made with 🌙 for plant lovers and spiritual seekers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Particle system
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Advanced navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const scrolled = window.pageYOffset;
+            
+            if (scrolled > 50) {
+                navbar.style.background = 'rgba(26, 26, 26, 0.95)';
+                navbar.style.backdropFilter = 'blur(30px)';
+                navbar.style.boxShadow = '0 8px 32px rgba(139, 120, 93, 0.2)';
+                navbar.style.borderBottom = '1px solid rgba(139, 120, 93, 0.4)';
+            } else {
+                navbar.style.background = 'rgba(26, 26, 26, 0.85)';
+                navbar.style.backdropFilter = 'blur(25px)';
+                navbar.style.boxShadow = 'none';
+                navbar.style.borderBottom = '1px solid rgba(139, 120, 93, 0.3)';
+            }
+        });
+
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            const button = this.querySelector('button');
+            
+            if (email) {
+                button.textContent = 'Subscribing...';
+                button.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    button.textContent = 'Subscribed! ✓';
+                    button.style.background = 'linear-gradient(135deg, rgba(139, 120, 93, 0.9), rgba(139, 120, 93, 0.9))';
+                    this.querySelector('input').value = '';
+                    
+                    setTimeout(() => {
+                        button.textContent = 'Subscribe';
+                        button.disabled = false;
+                        button.style.background = 'linear-gradient(135deg, rgba(139, 120, 93, 0.8), rgba(139, 120, 93, 0.8))';
+                    }, 2000);
+                }, 1000);
+            }
+        });
+
+        // Enhanced hover effects for feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.02)';
+                this.style.background = 'rgba(26, 26, 26, 0.8)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.background = 'rgba(26, 26, 26, 0.6)';
+            });
+        });
+
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.3 + (index * 0.1);
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .video-placeholder, .newsletter-content').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Video placeholder interaction
+        document.querySelector('.play-button').addEventListener('click', function() {
+            this.textContent = 'Loading...';
+            this.disabled = true;
+            
+            setTimeout(() => {
+                this.textContent = '▶ Watch Now';
+                this.disabled = false;
+                alert('Video player would open here. Connect to your video hosting service!');
+            }, 1000);
+        });
+
+        // Add some sparkle effects on click
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('cta-button')) {
+                createSparkle(e.clientX, e.clientY);
+            }
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.width = '6px';
+            sparkle.style.height = '6px';
+            sparkle.style.background = '#8b785d';
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '9999';
+            sparkle.style.animation = 'sparkleAnim 0.6s ease-out forwards';
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 600);
+        }
+
+        // Initialize features
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+        });
+
+        // Add sparkle animation to CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkleAnim {
+                0% {
+                    transform: scale(0);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scale(1);
+                    opacity: 0.8;
+                }
+                100% {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,7 +302,7 @@
             width: 100%;
             background: rgba(26, 26, 26, 0.85);
             backdrop-filter: blur(25px);
-            border-bottom: 1px solid rgba(106, 156, 137, 0.3);
+            border-bottom: 1px solid rgba(139, 120, 93, 0.3);
             z-index: 1000;
             padding: 1rem 0;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -44,15 +320,16 @@
         .logo {
             font-size: 2rem;
             font-weight: 700;
-            color: #6a9c89;
+            color: #d4c4a8;
             text-decoration: none;
-            text-shadow: 0 2px 15px rgba(106, 156, 137, 0.4);
+            text-shadow: 0 2px 15px rgba(212, 196, 168, 0.4);
             transition: all 0.3s ease;
         }
 
         .logo:hover {
             transform: scale(1.05);
-            color: #8fbc8f;
+            color: #d4c4a8;
+            text-shadow: 0 2px 20px rgba(212, 196, 168, 0.6);
         }
 
         .nav-menu {
@@ -69,27 +346,11 @@
             position: relative;
             padding: 0.5rem 1rem;
             border-radius: 25px;
-            overflow: hidden;
-        }
-
-        .nav-menu a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(106, 156, 137, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .nav-menu a:hover::before {
-            left: 100%;
         }
 
         .nav-menu a:hover {
-            color: #6a9c89;
-            background: rgba(106, 156, 137, 0.1);
+            color: #d4c4a8;
+            background: rgba(139, 120, 93, 0.1);
             backdrop-filter: blur(10px);
         }
 
@@ -98,7 +359,7 @@
             display: none;
             background: none;
             border: none;
-            color: #6a9c89;
+            color: #d4c4a8;
             font-size: 1.5rem;
             cursor: pointer;
         }
@@ -124,9 +385,9 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(106, 156, 137, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(139, 120, 93, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(139, 120, 93, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(106, 156, 137, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 40% 40%, rgba(139, 120, 93, 0.08) 0%, transparent 50%);
             animation: mysticalGlow 10s ease-in-out infinite alternate;
         }
 
@@ -143,7 +404,7 @@
             position: absolute;
             width: 3px;
             height: 3px;
-            background: rgba(106, 156, 137, 0.6);
+            background: rgba(139, 120, 93, 0.6);
             border-radius: 50%;
             animation: float-particles 8s linear infinite;
         }
@@ -177,7 +438,7 @@
             animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
             background: rgba(26, 26, 26, 0.4);
             backdrop-filter: blur(30px);
-            border: 1px solid rgba(106, 156, 137, 0.3);
+            border: 1px solid rgba(139, 120, 93, 0.3);
             border-radius: 40px;
             padding: 4rem 3rem;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -187,11 +448,11 @@
             font-size: 4rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #6a9c89 0%, #8fbc8f 50%, #d4c4a8 100%);
+            background: linear-gradient(135deg, #d4c4a8 0%, #8b785d 50%, #d4c4a8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 4px 20px rgba(106, 156, 137, 0.4);
+            text-shadow: 0 4px 20px rgba(212, 196, 168, 0.4);
             animation: textGlow 3s ease-in-out infinite alternate;
         }
 
@@ -217,7 +478,7 @@
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, rgba(106, 156, 137, 0.8), rgba(143, 188, 143, 0.8));
+            background: linear-gradient(135deg, rgba(139, 120, 93, 0.8), rgba(139, 120, 93, 0.8));
             backdrop-filter: blur(20px);
             color: #f5f1e8;
             padding: 1.2rem 2.5rem;
@@ -226,8 +487,8 @@
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(106, 156, 137, 0.4);
-            box-shadow: 0 8px 30px rgba(106, 156, 137, 0.3);
+            border: 1px solid rgba(139, 120, 93, 0.4);
+            box-shadow: 0 8px 30px rgba(139, 120, 93, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -249,7 +510,7 @@
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(106, 156, 137, 0.4);
+            box-shadow: 0 15px 40px rgba(139, 120, 93, 0.4);
         }
 
         .cta-secondary {
@@ -341,11 +602,11 @@
             text-align: center;
             font-size: 3rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #6a9c89 0%, #d4c4a8 100%);
+            background: linear-gradient(135deg, #d4c4a8 0%, #8b785d 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 2px 15px rgba(106, 156, 137, 0.3);
+            text-shadow: 0 2px 15px rgba(212, 196, 168, 0.3);
         }
 
         .section-subtitle {
@@ -366,7 +627,7 @@
         .feature-card {
             background: rgba(26, 26, 26, 0.6);
             backdrop-filter: blur(25px);
-            border: 1px solid rgba(106, 156, 137, 0.2);
+            border: 1px solid rgba(139, 120, 93, 0.2);
             padding: 2.5rem;
             border-radius: 25px;
             text-align: center;
@@ -382,7 +643,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(106, 156, 137, 0.05), transparent);
+            background: linear-gradient(45deg, transparent, rgba(139, 120, 93, 0.05), transparent);
             transition: transform 0.6s ease;
             transform: rotate(45deg);
         }
@@ -394,8 +655,8 @@
         .feature-card:hover {
             transform: translateY(-10px);
             background: rgba(26, 26, 26, 0.8);
-            border-color: rgba(106, 156, 137, 0.4);
-            box-shadow: 0 25px 50px rgba(106, 156, 137, 0.2);
+            border-color: rgba(139, 120, 93, 0.4);
+            box-shadow: 0 25px 50px rgba(139, 120, 93, 0.2);
         }
 
         .feature-icon {
@@ -412,7 +673,7 @@
         .feature-card h3 {
             font-size: 1.6rem;
             margin-bottom: 1rem;
-            color: #6a9c89;
+            color: #d4c4a8;
             font-weight: 600;
         }
 
@@ -437,7 +698,7 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 30% 70%, rgba(106, 156, 137, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, rgba(139, 120, 93, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 70% 30%, rgba(139, 120, 93, 0.1) 0%, transparent 50%);
         }
 
@@ -453,7 +714,7 @@
         .video-content h2 {
             font-size: 3rem;
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, #6a9c89 0%, #d4c4a8 100%);
+            background: linear-gradient(135deg, #d4c4a8 0%, #8b785d 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -470,7 +731,7 @@
         .video-placeholder {
             background: rgba(26, 26, 26, 0.6);
             backdrop-filter: blur(30px);
-            border: 1px solid rgba(106, 156, 137, 0.3);
+            border: 1px solid rgba(139, 120, 93, 0.3);
             border-radius: 25px;
             padding: 3rem;
             text-align: center;
@@ -486,7 +747,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(106, 156, 137, 0.05), transparent);
+            background: linear-gradient(45deg, transparent, rgba(139, 120, 93, 0.05), transparent);
             transform: translateX(-100%);
             transition: transform 0.6s ease;
         }
@@ -496,15 +757,15 @@
         }
 
         .video-placeholder:hover {
-            border-color: rgba(106, 156, 137, 0.5);
-            box-shadow: 0 20px 50px rgba(106, 156, 137, 0.2);
+            border-color: rgba(139, 120, 93, 0.5);
+            box-shadow: 0 20px 50px rgba(139, 120, 93, 0.2);
             transform: scale(1.02);
         }
 
         .video-placeholder h3 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: #6a9c89;
+            color: #d4c4a8;
         }
 
         .video-placeholder p {
@@ -513,22 +774,23 @@
         }
 
         .play-button {
-            background: linear-gradient(135deg, rgba(106, 156, 137, 0.8), rgba(143, 188, 143, 0.8));
+            background: linear-gradient(135deg, rgba(139, 120, 93, 0.8), rgba(139, 120, 93, 0.8));
             backdrop-filter: blur(20px);
             color: #f5f1e8;
-            border: 1px solid rgba(106, 156, 137, 0.4);
+            border: 1px solid rgba(139, 120, 93, 0.4);
             padding: 1.2rem 2.5rem;
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.4s ease;
             font-size: 1.1rem;
-            box-shadow: 0 8px 25px rgba(106, 156, 137, 0.3);
+            box-shadow: 0 8px 25px rgba(139, 120, 93, 0.3);
         }
 
         .play-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(106, 156, 137, 0.4);
+            box-shadow: 0 12px 35px rgba(139, 120, 93, 0.4);
+        } 12px 35px rgba(106, 156, 137, 0.4);
         }
 
         /* Enhanced Newsletter Section */
@@ -547,7 +809,7 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 50% 50%, rgba(106, 156, 137, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 50% 50%, rgba(139, 120, 93, 0.1) 0%, transparent 50%);
         }
 
         .newsletter-content {
@@ -555,7 +817,7 @@
             z-index: 1;
             background: rgba(26, 26, 26, 0.6);
             backdrop-filter: blur(30px);
-            border: 1px solid rgba(106, 156, 137, 0.3);
+            border: 1px solid rgba(139, 120, 93, 0.3);
             border-radius: 40px;
             padding: 4rem;
             max-width: 700px;
@@ -566,7 +828,7 @@
         .newsletter h2 {
             font-size: 2.8rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #6a9c89 0%, #d4c4a8 100%);
+            background: linear-gradient(135deg, #d4c4a8 0%, #8b785d 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -586,15 +848,15 @@
             gap: 1rem;
             background: rgba(26, 26, 26, 0.6);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(106, 156, 137, 0.3);
+            border: 1px solid rgba(139, 120, 93, 0.3);
             border-radius: 50px;
             padding: 0.5rem;
             transition: all 0.3s ease;
         }
 
         .newsletter-form:focus-within {
-            border-color: rgba(106, 156, 137, 0.6);
-            box-shadow: 0 0 20px rgba(106, 156, 137, 0.2);
+            border-color: rgba(139, 120, 93, 0.6);
+            box-shadow: 0 0 20px rgba(139, 120, 93, 0.2);
         }
 
         .newsletter-form input {
@@ -613,7 +875,7 @@
         }
 
         .newsletter-form button {
-            background: linear-gradient(135deg, rgba(106, 156, 137, 0.8), rgba(143, 188, 143, 0.8));
+            background: linear-gradient(135deg, rgba(139, 120, 93, 0.8), rgba(139, 120, 93, 0.8));
             backdrop-filter: blur(20px);
             color: #f5f1e8;
             border: none;
@@ -623,12 +885,12 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(106, 156, 137, 0.3);
+            box-shadow: 0 5px 15px rgba(139, 120, 93, 0.3);
         }
 
         .newsletter-form button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(106, 156, 137, 0.4);
+            box-shadow: 0 8px 25px rgba(139, 120, 93, 0.4);
         }
 
         /* Enhanced Footer */
@@ -637,7 +899,7 @@
             color: #b8a082;
             padding: 4rem 0;
             text-align: center;
-            border-top: 1px solid rgba(106, 156, 137, 0.2);
+            border-top: 1px solid rgba(139, 120, 93, 0.2);
             position: relative;
         }
 
@@ -649,7 +911,7 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(106, 156, 137, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(139, 120, 93, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(139, 120, 93, 0.05) 0%, transparent 50%);
         }
 
@@ -665,7 +927,7 @@
         .footer-section h3 {
             font-size: 1.4rem;
             margin-bottom: 1.5rem;
-            color: #6a9c89;
+            color: #d4c4a8;
             font-weight: 600;
         }
 
@@ -679,12 +941,12 @@
         }
 
         .footer-section a:hover {
-            color: #6a9c89;
+            color: #d4c4a8;
             transform: translateX(5px);
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(106, 156, 137, 0.2);
+            border-top: 1px solid rgba(139, 120, 93, 0.2);
             padding-top: 2rem;
             color: #8b785d;
             position: relative;
@@ -726,10 +988,6 @@
             .section-title {
                 font-size: 2.2rem;
             }
-
-            .stats-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
         }
 
         /* Advanced Floating Elements */
@@ -738,7 +996,7 @@
             z-index: -1;
             opacity: 0.2;
             animation: float 12s ease-in-out infinite;
-            color: #6a9c89;
+            color: #8b785d;
         }
 
         @keyframes float {
@@ -778,9 +1036,9 @@
         /* Advanced Glassmorphism accents */
         .glass-accent {
             position: absolute;
-            background: rgba(106, 156, 137, 0.1);
+            background: rgba(139, 120, 93, 0.1);
             backdrop-filter: blur(25px);
-            border: 1px solid rgba(106, 156, 137, 0.2);
+            border: 1px solid rgba(139, 120, 93, 0.2);
             border-radius: 50%;
             animation: pulse 6s ease-in-out infinite;
         }
@@ -838,8 +1096,8 @@
         .spinner {
             width: 50px;
             height: 50px;
-            border: 3px solid rgba(106, 156, 137, 0.3);
-            border-top: 3px solid #6a9c89;
+            border: 3px solid rgba(139, 120, 93, 0.3);
+            border-top: 3px solid #8b785d;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -848,6 +1106,93 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Floating Elements -->
+    <div class="floating-element plant-1">🌿</div>
+    <div class="floating-element plant-2">🍃</div>
+    <div class="floating-element crystal">🔮</div>
+    <div class="floating-element moon">🌙</div>
+
+    <!-- Glassmorphism Accents -->
+    <div class="glass-accent glass-1"></div>
+    <div class="glass-accent glass-2"></div>
+    <div class="glass-accent glass-3"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Myrtle & Mist</a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#vlogs">Vlogs</a></li>
+                <li><a href="#plants">Plant Care</a></li>
+                <li><a href="#spirituality">Spirituality</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>Myrtle & Mist</h1>
+            <p class="hero-subtitle">Where the wisdom of plants meets the magic of spirit. Discover the sacred connection between nurturing green life and nurturing your soul.</p>
+            <div class="hero-buttons">
+                <a href="#vlogs" class="cta-button">Watch Our Latest Vlogs</a>
+                <a href="#newsletter" class="cta-button cta-secondary">Join Our Community</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Nurture Your Garden & Spirit</h2>
+            <p class="section-subtitle">Discover the profound connection between plant care and spiritual growth through our comprehensive guides and community wisdom.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Plant Care Mastery</h3>
+                    <p>Expert guidance on nurturing your houseplants, from beginner-friendly tips to advanced propagation techniques. Each plant has its own story to tell, and we'll help you understand their unique needs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔮</div>
+                    <h3>Spiritual Connection</h3>
+                    <p>Explore the metaphysical properties of plants, crystal healing, meditation practices, and learn how to create sacred spaces in your home that nurture both body and soul.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎥</div>
+                    <h3>Weekly Vlogs</h3>
+                    <p>Immersive video content featuring plant care tutorials, spiritual practices, seasonal rituals, and behind-the-scenes glimpses of our green sanctuary and daily practices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌙</div>
+                    <h3>Moon Cycle Gardening</h3>
+                    <p>Learn to align your plant care with lunar cycles, seasonal changes, and natural rhythms for optimal growth and spiritual connection with your green companions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏡</div>
+                    <h3>Sacred Space Design</h3>
+                    <p>Transform your living space into a sanctuary with our guides on creating harmonious environments that support both plant health and spiritual well-being.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <h3>Herbal Wisdom</h3>
+                    <p>Discover the healing properties of herbs, learn to create natural remedies, and understand the spiritual significance of different plants in various traditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     </style>
 </head>
 <body>
@@ -1062,50 +1407,6 @@
             }
         }
 
-        // Animated counters
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const counter = entry.target;
-                        const target = parseInt(counter.getAttribute('data-target'));
-                        const duration = 2000;
-                        const step = target / (duration / 16);
-                        let current = 0;
-                        
-                        const timer = setInterval(() => {
-                            current += step;
-                            if (current >= target) {
-                                counter.textContent = target;
-                                clearInterval(timer);
-                            } else {
-                                counter.textContent = Math.floor(current);
-                            }
-                        }, 16);
-                        
-                        observer.unobserve(counter);
-                    }
-                });
-            });
-            
-            counters.forEach(counter => observer.observe(counter));
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
         // Advanced navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
@@ -1114,13 +1415,13 @@
             if (scrolled > 50) {
                 navbar.style.background = 'rgba(26, 26, 26, 0.95)';
                 navbar.style.backdropFilter = 'blur(30px)';
-                navbar.style.boxShadow = '0 8px 32px rgba(106, 156, 137, 0.2)';
-                navbar.style.borderBottom = '1px solid rgba(106, 156, 137, 0.4)';
+                navbar.style.boxShadow = '0 8px 32px rgba(139, 120, 93, 0.2)';
+                navbar.style.borderBottom = '1px solid rgba(139, 120, 93, 0.4)';
             } else {
                 navbar.style.background = 'rgba(26, 26, 26, 0.85)';
                 navbar.style.backdropFilter = 'blur(25px)';
                 navbar.style.boxShadow = 'none';
-                navbar.style.borderBottom = '1px solid rgba(106, 156, 137, 0.3)';
+                navbar.style.borderBottom = '1px solid rgba(139, 120, 93, 0.3)';
             }
         });
 
