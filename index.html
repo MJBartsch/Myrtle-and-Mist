@@ -19,21 +19,21 @@
             overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* Advanced Navigation */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
             background: rgba(26, 26, 26, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(139, 120, 93, 0.2);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(106, 156, 137, 0.3);
             z-index: 1000;
             padding: 1rem 0;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -42,11 +42,17 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: #d4c4a8;
+            color: #6a9c89;
             text-decoration: none;
-            text-shadow: 0 2px 10px rgba(212, 196, 168, 0.3);
+            text-shadow: 0 2px 15px rgba(106, 156, 137, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: #8fbc8f;
         }
 
         .nav-menu {
@@ -62,16 +68,42 @@
             transition: all 0.3s ease;
             position: relative;
             padding: 0.5rem 1rem;
-            border-radius: 20px;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(106, 156, 137, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-menu a:hover::before {
+            left: 100%;
         }
 
         .nav-menu a:hover {
-            color: #d4c4a8;
-            background: rgba(139, 120, 93, 0.1);
+            color: #6a9c89;
+            background: rgba(106, 156, 137, 0.1);
             backdrop-filter: blur(10px);
         }
 
-        /* Hero Section */
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #6a9c89;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Advanced Hero Section */
         .hero {
             height: 100vh;
             background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 50%, #0d1117 100%);
@@ -92,79 +124,195 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(139, 120, 93, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(76, 63, 47, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(139, 120, 93, 0.05) 0%, transparent 50%);
-            animation: mysticalGlow 8s ease-in-out infinite alternate;
+                radial-gradient(circle at 20% 80%, rgba(106, 156, 137, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 120, 93, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(106, 156, 137, 0.08) 0%, transparent 50%);
+            animation: mysticalGlow 10s ease-in-out infinite alternate;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(106, 156, 137, 0.6);
+            border-radius: 50%;
+            animation: float-particles 8s linear infinite;
+        }
+
+        @keyframes float-particles {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         @keyframes mysticalGlow {
-            0% { opacity: 0.5; }
+            0% { opacity: 0.7; }
             100% { opacity: 1; }
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             z-index: 1;
             position: relative;
-            animation: fadeInUp 1s ease-out;
-            background: rgba(26, 26, 26, 0.3);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(139, 120, 93, 0.2);
-            border-radius: 30px;
+            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(106, 156, 137, 0.3);
+            border-radius: 40px;
             padding: 4rem 3rem;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
             font-weight: 700;
-            color: #d4c4a8;
-            text-shadow: 0 4px 20px rgba(212, 196, 168, 0.4);
+            background: linear-gradient(135deg, #6a9c89 0%, #8fbc8f 50%, #d4c4a8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 20px rgba(106, 156, 137, 0.4);
+            animation: textGlow 3s ease-in-out infinite alternate;
         }
 
-        .hero p {
-            font-size: 1.3rem;
+        @keyframes textGlow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.2); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
             margin-bottom: 2rem;
             color: #b8a082;
             opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .cta-button {
             display: inline-block;
-            background: rgba(139, 120, 93, 0.8);
+            background: linear-gradient(135deg, rgba(106, 156, 137, 0.8), rgba(143, 188, 143, 0.8));
             backdrop-filter: blur(20px);
             color: #f5f1e8;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(139, 120, 93, 0.4);
-            box-shadow: 0 8px 25px rgba(139, 120, 93, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(106, 156, 137, 0.4);
+            box-shadow: 0 8px 30px rgba(106, 156, 137, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            background: rgba(139, 120, 93, 0.9);
-            box-shadow: 0 12px 35px rgba(139, 120, 93, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(106, 156, 137, 0.4);
         }
 
-        /* Features Section */
+        .cta-secondary {
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid rgba(139, 120, 93, 0.4);
+            box-shadow: 0 8px 30px rgba(139, 120, 93, 0.2);
+        }
+
+        .cta-secondary:hover {
+            box-shadow: 0 15px 40px rgba(139, 120, 93, 0.3);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 3rem 0;
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(106, 156, 137, 0.2);
+            border-bottom: 1px solid rgba(106, 156, 137, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(106, 156, 137, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(106, 156, 137, 0.4);
+            box-shadow: 0 15px 35px rgba(106, 156, 137, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #6a9c89;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #b8a082;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Enhanced Features Section */
         .features {
-            padding: 5rem 0;
+            padding: 6rem 0;
             background: #1a1a1a;
             position: relative;
         }
@@ -177,12 +325,12 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 10% 20%, rgba(76, 63, 47, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 10% 20%, rgba(106, 156, 137, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 90% 80%, rgba(139, 120, 93, 0.1) 0%, transparent 50%);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             position: relative;
@@ -191,27 +339,38 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #d4c4a8;
-            text-shadow: 0 2px 15px rgba(212, 196, 168, 0.3);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #6a9c89 0%, #d4c4a8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 15px rgba(106, 156, 137, 0.3);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #b8a082;
+            margin-bottom: 4rem;
+            opacity: 0.8;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 4rem;
         }
 
         .feature-card {
             background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(139, 120, 93, 0.2);
-            padding: 2rem;
-            border-radius: 20px;
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(106, 156, 137, 0.2);
+            padding: 2.5rem;
+            border-radius: 25px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
@@ -219,44 +378,53 @@
         .feature-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(139, 120, 93, 0.1), transparent);
-            transition: left 0.6s ease;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(106, 156, 137, 0.05), transparent);
+            transition: transform 0.6s ease;
+            transform: rotate(45deg);
         }
 
         .feature-card:hover::before {
-            left: 100%;
+            transform: rotate(45deg) translate(50%, 50%);
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             background: rgba(26, 26, 26, 0.8);
-            border-color: rgba(139, 120, 93, 0.4);
-            box-shadow: 0 15px 40px rgba(139, 120, 93, 0.2);
+            border-color: rgba(106, 156, 137, 0.4);
+            box-shadow: 0 25px 50px rgba(106, 156, 137, 0.2);
         }
 
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
         }
 
         .feature-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
-            color: #d4c4a8;
+            color: #6a9c89;
+            font-weight: 600;
         }
 
         .feature-card p {
             color: #b8a082;
             opacity: 0.9;
+            line-height: 1.6;
         }
 
-        /* Video Section */
+        /* Advanced Video Section */
         .video-section {
-            padding: 5rem 0;
+            padding: 6rem 0;
             background: #2d2d2d;
             position: relative;
         }
@@ -269,52 +437,74 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 30% 70%, rgba(139, 120, 93, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(76, 63, 47, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 30% 70%, rgba(106, 156, 137, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(139, 120, 93, 0.1) 0%, transparent 50%);
         }
 
         .video-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
             position: relative;
             z-index: 1;
         }
 
         .video-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #d4c4a8;
-            text-shadow: 0 2px 15px rgba(212, 196, 168, 0.3);
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #6a9c89 0%, #d4c4a8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .video-content p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
             color: #b8a082;
             opacity: 0.9;
+            line-height: 1.7;
         }
 
         .video-placeholder {
             background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(139, 120, 93, 0.2);
-            border-radius: 20px;
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(106, 156, 137, 0.3);
+            border-radius: 25px;
             padding: 3rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(106, 156, 137, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .video-placeholder:hover::before {
+            transform: translateX(100%);
         }
 
         .video-placeholder:hover {
-            border-color: rgba(139, 120, 93, 0.4);
-            box-shadow: 0 15px 40px rgba(139, 120, 93, 0.2);
+            border-color: rgba(106, 156, 137, 0.5);
+            box-shadow: 0 20px 50px rgba(106, 156, 137, 0.2);
+            transform: scale(1.02);
         }
 
         .video-placeholder h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: #d4c4a8;
+            color: #6a9c89;
         }
 
         .video-placeholder p {
@@ -323,27 +513,27 @@
         }
 
         .play-button {
-            background: rgba(139, 120, 93, 0.8);
+            background: linear-gradient(135deg, rgba(106, 156, 137, 0.8), rgba(143, 188, 143, 0.8));
             backdrop-filter: blur(20px);
             color: #f5f1e8;
-            border: 1px solid rgba(139, 120, 93, 0.4);
-            padding: 1rem 2rem;
-            border-radius: 25px;
+            border: 1px solid rgba(106, 156, 137, 0.4);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
+            transition: all 0.4s ease;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(106, 156, 137, 0.3);
         }
 
         .play-button:hover {
-            background: rgba(139, 120, 93, 0.9);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 120, 93, 0.3);
+            box-shadow: 0 12px 35px rgba(106, 156, 137, 0.4);
         }
 
-        /* Newsletter Section */
+        /* Enhanced Newsletter Section */
         .newsletter {
-            padding: 4rem 0;
+            padding: 5rem 0;
             background: #1a1a1a;
             text-align: center;
             position: relative;
@@ -357,31 +547,34 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 50% 50%, rgba(139, 120, 93, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 50% 50%, rgba(106, 156, 137, 0.1) 0%, transparent 50%);
         }
 
         .newsletter-content {
             position: relative;
             z-index: 1;
             background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(139, 120, 93, 0.2);
-            border-radius: 30px;
-            padding: 3rem;
-            max-width: 600px;
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(106, 156, 137, 0.3);
+            border-radius: 40px;
+            padding: 4rem;
+            max-width: 700px;
             margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .newsletter h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
-            color: #d4c4a8;
-            text-shadow: 0 2px 15px rgba(212, 196, 168, 0.3);
+            background: linear-gradient(135deg, #6a9c89 0%, #d4c4a8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .newsletter p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
             color: #b8a082;
             opacity: 0.9;
         }
@@ -391,17 +584,27 @@
             max-width: 500px;
             margin: 0 auto;
             gap: 1rem;
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(106, 156, 137, 0.3);
+            border-radius: 50px;
+            padding: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form:focus-within {
+            border-color: rgba(106, 156, 137, 0.6);
+            box-shadow: 0 0 20px rgba(106, 156, 137, 0.2);
         }
 
         .newsletter-form input {
             flex: 1;
-            padding: 1rem;
-            border: 1px solid rgba(139, 120, 93, 0.3);
+            padding: 1rem 1.5rem;
+            border: none;
             border-radius: 25px;
             font-size: 1rem;
             outline: none;
-            background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(20px);
+            background: transparent;
             color: #f5f1e8;
         }
 
@@ -410,66 +613,90 @@
         }
 
         .newsletter-form button {
-            background: rgba(139, 120, 93, 0.8);
+            background: linear-gradient(135deg, rgba(106, 156, 137, 0.8), rgba(143, 188, 143, 0.8));
             backdrop-filter: blur(20px);
             color: #f5f1e8;
-            border: 1px solid rgba(139, 120, 93, 0.4);
+            border: none;
             padding: 1rem 2rem;
             border-radius: 25px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(106, 156, 137, 0.3);
         }
 
         .newsletter-form button:hover {
-            background: rgba(139, 120, 93, 0.9);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 120, 93, 0.3);
+            box-shadow: 0 8px 25px rgba(106, 156, 137, 0.4);
         }
 
-        /* Footer */
+        /* Enhanced Footer */
         .footer {
             background: #0d1117;
             color: #b8a082;
-            padding: 3rem 0;
+            padding: 4rem 0;
             text-align: center;
-            border-top: 1px solid rgba(139, 120, 93, 0.2);
+            border-top: 1px solid rgba(106, 156, 137, 0.2);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(106, 156, 137, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 120, 93, 0.05) 0%, transparent 50%);
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
         }
 
         .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #d4c4a8;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: #6a9c89;
+            font-weight: 600;
         }
 
         .footer-section a {
             color: #b8a082;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            padding: 0.5rem 0;
         }
 
         .footer-section a:hover {
-            color: #d4c4a8;
+            color: #6a9c89;
+            transform: translateX(5px);
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(139, 120, 93, 0.2);
+            border-top: 1px solid rgba(106, 156, 137, 0.2);
             padding-top: 2rem;
             color: #8b785d;
+            position: relative;
+            z-index: 1;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
             .nav-menu {
                 display: none;
             }
@@ -478,12 +705,13 @@
                 font-size: 2.5rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
-            }
-
             .hero-content {
                 padding: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
             }
 
             .video-container {
@@ -492,97 +720,142 @@
 
             .newsletter-form {
                 flex-direction: column;
-                max-width: 300px;
+                max-width: 400px;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
         }
 
-        /* Floating Elements */
+        /* Advanced Floating Elements */
         .floating-element {
             position: fixed;
             z-index: -1;
-            opacity: 0.15;
-            animation: float 8s ease-in-out infinite;
-            color: #8b785d;
+            opacity: 0.2;
+            animation: float 12s ease-in-out infinite;
+            color: #6a9c89;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            33% { transform: translateY(-15px) rotate(5deg); }
+            66% { transform: translateY(-10px) rotate(-3deg); }
         }
 
         .plant-1 {
-            top: 20%;
-            left: 10%;
-            font-size: 2rem;
+            top: 15%;
+            left: 8%;
+            font-size: 2.5rem;
             animation-delay: 0s;
         }
 
         .plant-2 {
             top: 60%;
-            right: 15%;
-            font-size: 1.5rem;
-            animation-delay: 3s;
+            right: 12%;
+            font-size: 2rem;
+            animation-delay: 4s;
         }
 
         .crystal {
             top: 40%;
-            left: 80%;
-            font-size: 1.8rem;
-            animation-delay: 6s;
+            left: 85%;
+            font-size: 2.2rem;
+            animation-delay: 8s;
         }
 
         .moon {
             top: 10%;
-            right: 10%;
-            font-size: 1.2rem;
-            animation-delay: 9s;
+            right: 8%;
+            font-size: 1.8rem;
+            animation-delay: 12s;
         }
 
-        /* Glassmorphism accents */
+        /* Advanced Glassmorphism accents */
         .glass-accent {
             position: absolute;
-            background: rgba(139, 120, 93, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(139, 120, 93, 0.2);
+            background: rgba(106, 156, 137, 0.1);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(106, 156, 137, 0.2);
             border-radius: 50%;
-            animation: pulse 4s ease-in-out infinite;
+            animation: pulse 6s ease-in-out infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.05); opacity: 0.8; }
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.08); opacity: 0.7; }
         }
 
         .glass-1 {
-            width: 100px;
-            height: 100px;
-            top: 15%;
-            left: 5%;
+            width: 120px;
+            height: 120px;
+            top: 12%;
+            left: 3%;
             animation-delay: 0s;
         }
 
         .glass-2 {
-            width: 150px;
-            height: 150px;
-            top: 70%;
-            right: 10%;
-            animation-delay: 2s;
+            width: 180px;
+            height: 180px;
+            top: 65%;
+            right: 5%;
+            animation-delay: 3s;
         }
 
         .glass-3 {
-            width: 80px;
-            height: 80px;
-            top: 45%;
-            left: 85%;
-            animation-delay: 4s;
+            width: 100px;
+            height: 100px;
+            top: 42%;
+            left: 88%;
+            animation-delay: 6s;
+        }
+
+        /* Loading animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(106, 156, 137, 0.3);
+            border-top: 3px solid #6a9c89;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
     <!-- Floating Elements -->
     <div class="floating-element plant-1">🌿</div>
     <div class="floating-element plant-2">🍃</div>
@@ -606,15 +879,42 @@
                 <li><a href="#shop">Shop</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="mobile-menu-toggle">☰</button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <div class="hero-particles" id="particles"></div>
         <div class="hero-content">
             <h1>Myrtle & Mist</h1>
-            <p>Where the wisdom of plants meets the magic of spirit. Discover the sacred connection between nurturing green life and nurturing your soul.</p>
-            <a href="#vlogs" class="cta-button">Watch Our Latest Vlogs</a>
+            <p class="hero-subtitle">Where the wisdom of plants meets the magic of spirit. Discover the sacred connection between nurturing green life and nurturing your soul.</p>
+            <div class="hero-buttons">
+                <a href="#vlogs" class="cta-button">Watch Our Latest Vlogs</a>
+                <a href="#newsletter" class="cta-button cta-secondary">Join Our Community</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number" data-target="15000">0</span>
+                <span class="stat-label">Community Members</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="250">0</span>
+                <span class="stat-label">Video Guides</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="500">0</span>
+                <span class="stat-label">Plant Species Covered</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="98">0</span>
+                <span class="stat-label">Success Rate %</span>
+            </div>
         </div>
     </section>
 
@@ -622,21 +922,37 @@
     <section class="features">
         <div class="container">
             <h2 class="section-title">Nurture Your Garden & Spirit</h2>
+            <p class="section-subtitle">Discover the profound connection between plant care and spiritual growth through our comprehensive guides and community wisdom.</p>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🌱</div>
-                    <h3>Plant Care Wisdom</h3>
-                    <p>Expert guidance on nurturing your houseplants, from beginner-friendly tips to advanced propagation techniques. Each plant has its own story to tell.</p>
+                    <h3>Plant Care Mastery</h3>
+                    <p>Expert guidance on nurturing your houseplants, from beginner-friendly tips to advanced propagation techniques. Each plant has its own story to tell, and we'll help you understand their unique needs.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔮</div>
                     <h3>Spiritual Connection</h3>
-                    <p>Explore the metaphysical properties of plants, crystal healing, meditation practices, and how to create sacred spaces in your home.</p>
+                    <p>Explore the metaphysical properties of plants, crystal healing, meditation practices, and learn how to create sacred spaces in your home that nurture both body and soul.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎥</div>
-                    <h3>Video Content</h3>
-                    <p>Weekly vlogs featuring plant care tutorials, spiritual practices, seasonal rituals, and behind-the-scenes glimpses of our green sanctuary.</p>
+                    <h3>Weekly Vlogs</h3>
+                    <p>Immersive video content featuring plant care tutorials, spiritual practices, seasonal rituals, and behind-the-scenes glimpses of our green sanctuary and daily practices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌙</div>
+                    <h3>Moon Cycle Gardening</h3>
+                    <p>Learn to align your plant care with lunar cycles, seasonal changes, and natural rhythms for optimal growth and spiritual connection with your green companions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏡</div>
+                    <h3>Sacred Space Design</h3>
+                    <p>Transform your living space into a sanctuary with our guides on creating harmonious environments that support both plant health and spiritual well-being.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <h3>Herbal Wisdom</h3>
+                    <p>Discover the healing properties of herbs, learn to create natural remedies, and understand the spiritual significance of different plants in various traditions.</p>
                 </div>
             </div>
         </div>
@@ -648,13 +964,16 @@
             <div class="video-container">
                 <div class="video-content">
                     <h2>Latest Vlogs</h2>
-                    <p>Join our community of plant lovers and spiritual seekers. Each week, we share new insights, practical tips, and magical moments from our journey with plants and spirit.</p>
-                    <a href="#" class="cta-button">Subscribe for Updates</a>
+                    <p>Join our growing community of plant lovers and spiritual seekers. Each week, we share new insights, practical tips, and magical moments from our journey with plants and spirit.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="cta-button">Subscribe for Updates</a>
+                        <a href="#" class="cta-button cta-secondary">View All Videos</a>
+                    </div>
                 </div>
                 <div class="video-placeholder">
                     <h3>Featured Video</h3>
                     <p>🌿 "Creating Sacred Space with Houseplants" 🌿</p>
-                    <p>Learn how to combine plant care with spiritual practice to transform your living space into a sanctuary.</p>
+                    <p>Learn how to combine plant care with spiritual practice to transform your living space into a sanctuary of growth and tranquility.</p>
                     <div style="margin-top: 2rem;">
                         <button class="play-button">▶ Watch Now</button>
                     </div>
@@ -664,11 +983,11 @@
     </section>
 
     <!-- Newsletter Section -->
-    <section class="newsletter">
+    <section class="newsletter" id="newsletter">
         <div class="container">
             <div class="newsletter-content">
                 <h2>Join Our Growing Community</h2>
-                <p>Get weekly tips, exclusive content, and be the first to know about new vlogs and featured products.</p>
+                <p>Get weekly tips, exclusive content, and be the first to know about new vlogs, featured products, and spiritual plant wisdom.</p>
                 <form class="newsletter-form">
                     <input type="email" placeholder="Enter your email address" required>
                     <button type="submit">Subscribe</button>
@@ -687,6 +1006,7 @@
                     <a href="#">Spiritual Practices</a>
                     <a href="#">Video Library</a>
                     <a href="#">Guest Posts</a>
+                    <a href="#">Monthly Challenges</a>
                 </div>
                 <div class="footer-section">
                     <h3>Community</h3>
@@ -694,6 +1014,7 @@
                     <a href="#">YouTube</a>
                     <a href="#">Newsletter</a>
                     <a href="#">Contact</a>
+                    <a href="#">Discord Server</a>
                 </div>
                 <div class="footer-section">
                     <h3>Shop</h3>
@@ -701,6 +1022,15 @@
                     <a href="#">Spiritual Tools</a>
                     <a href="#">Affiliate Partners</a>
                     <a href="#">Featured Products</a>
+                    <a href="#">Gift Cards</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="#">Plant Encyclopedia</a>
+                    <a href="#">Troubleshooting Guide</a>
+                    <a href="#">Seasonal Calendar</a>
+                    <a href="#">Moon Phase Tracker</a>
+                    <a href="#">FAQ</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -710,6 +1040,58 @@
     </footer>
 
     <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Particle system
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Animated counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+                        
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                counter.textContent = target;
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.floor(current);
+                            }
+                        }, 16);
+                        
+                        observer.unobserve(counter);
+                    }
+                });
+            });
+            
+            counters.forEach(counter => observer.observe(counter));
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -724,15 +1106,21 @@
             });
         });
 
-        // Navbar scroll effect
+        // Advanced navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
+            const scrolled = window.pageYOffset;
+            
+            if (scrolled > 50) {
                 navbar.style.background = 'rgba(26, 26, 26, 0.95)';
-                navbar.style.boxShadow = '0 8px 25px rgba(139, 120, 93, 0.2)';
+                navbar.style.backdropFilter = 'blur(30px)';
+                navbar.style.boxShadow = '0 8px 32px rgba(106, 156, 137, 0.2)';
+                navbar.style.borderBottom = '1px solid rgba(106, 156, 137, 0.4)';
             } else {
                 navbar.style.background = 'rgba(26, 26, 26, 0.85)';
+                navbar.style.backdropFilter = 'blur(25px)';
                 navbar.style.boxShadow = 'none';
+                navbar.style.borderBottom = '1px solid rgba(106, 156, 137, 0.3)';
             }
         });
 
@@ -740,16 +1128,31 @@
         document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = this.querySelector('input[type="email"]').value;
+            const button = this.querySelector('button');
+            
             if (email) {
-                alert('Thank you for subscribing! We\'ll send you weekly plant and spiritual wisdom.');
-                this.reset();
+                button.textContent = 'Subscribing...';
+                button.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    button.textContent = 'Subscribed! ✓';
+                    button.style.background = 'linear-gradient(135deg, rgba(106, 156, 137, 0.9), rgba(143, 188, 143, 0.9))';
+                    this.querySelector('input').value = '';
+                    
+                    setTimeout(() => {
+                        button.textContent = 'Subscribe';
+                        button.disabled = false;
+                        button.style.background = 'linear-gradient(135deg, rgba(106, 156, 137, 0.8), rgba(143, 188, 143, 0.8))';
+                    }, 2000);
+                }, 1000);
             }
         });
 
         // Enhanced hover effects for feature cards
         document.querySelectorAll('.feature-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
+                this.style.transform = 'translateY(-12px) scale(1.02)';
                 this.style.background = 'rgba(26, 26, 26, 0.8)';
             });
             
@@ -764,12 +1167,102 @@
             const scrolled = window.pageYOffset;
             const parallaxElements = document.querySelectorAll('.floating-element');
             
-            parallaxElements.forEach(element => {
-                const speed = 0.5;
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.3 + (index * 0.1);
                 const yPos = -(scrolled * speed);
                 element.style.transform = `translateY(${yPos}px)`;
             });
         });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .video-placeholder, .newsletter-content').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Initialize features
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            animateCounters();
+        });
+
+        // Video placeholder interaction
+        document.querySelector('.play-button').addEventListener('click', function() {
+            this.textContent = 'Loading...';
+            this.disabled = true;
+            
+            setTimeout(() => {
+                this.textContent = '▶ Watch Now';
+                this.disabled = false;
+                alert('Video player would open here. Connect to your video hosting service!');
+            }, 1000);
+        });
+
+        // Add some sparkle effects on click
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('cta-button')) {
+                createSparkle(e.clientX, e.clientY);
+            }
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.width = '6px';
+            sparkle.style.height = '6px';
+            sparkle.style.background = '#6a9c89';
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '9999';
+            sparkle.style.animation = 'sparkleAnim 0.6s ease-out forwards';
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 600);
+        }
+
+        // Add sparkle animation to CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkleAnim {
+                0% {
+                    transform: scale(0);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scale(1);
+                    opacity: 0.8;
+                }
+                100% {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
