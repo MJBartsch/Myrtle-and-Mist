@@ -1,7 +1,5 @@
 'use client';
 import { useMode } from '@/app/context/ModeContext';
-You should update this file as well to use a relative path, just to be absolutely safe.
-
 
 http://googleusercontent.com/immersive_entry_chip/1
 
