@@ -9,25 +9,32 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // The "Myrtle" Greens
+        // Botanical Mode (Greens)
         myrtle: {
-          900: '#0f1f15', // Deepest forest (Background)
-          800: '#1a3324', // Card background
-          500: '#4a7a5d', // Primary buttons/accents
+          900: '#0f1f15', // Deep Forest
+          800: '#1a3324',
+          500: '#4a7a5d',
         },
-        // The "Mist" Colors
+        // Esoteric Mode (Violets/Indigos)
+        esoteric: {
+          900: '#1a1025', // Deep Void
+          800: '#2d1b4e',
+          500: '#8b5cf6',
+        },
+        // Shared Neutrals
         mist: {
-          100: '#e8f3f1', // Text highlights
-          200: '#cce3de', // Secondary text
-          500: '#a4c3b2', // Borders/Subtle lines
+          100: '#e8f3f1', 
+          200: '#cce3de', 
+          500: '#a4c3b2', 
         },
-        // The "Spirit" Accent
+        // Shared Accent
         spirit: {
-          gold: '#d4c4a8', // Elegant accent
+          gold: '#d4c4a8', 
         }
       },
       backgroundImage: {
-        'gradient-mist': 'linear-gradient(to top, #0f1f15, #1a3324)',
+        'gradient-botanical': 'linear-gradient(to top, #0f1f15, #1a3324)',
+        'gradient-esoteric': 'linear-gradient(to top, #1a1025, #2d1b4e)',
       },
     },
   },
