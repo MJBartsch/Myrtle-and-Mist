@@ -1,5 +1,5 @@
 'use client';
-import { useMode } from '@/app/context/ModeContext';
+import { useMode } from '../app/context/ModeContext';
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Leaf, Wind, Moon, Sparkles, ArrowRight, Mail, Sun, Droplets, Eye, Scroll } from 'lucide-react';
