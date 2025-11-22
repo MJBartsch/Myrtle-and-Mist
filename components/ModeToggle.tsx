@@ -1,6 +1,6 @@
 'use client';
 
-import { useMode } from '../app/context/ModeContext';
+import { useMode } from './app/context/ModeContext';
 import { motion } from 'framer-motion';
 import { Leaf, Sparkles } from 'lucide-react';
 
