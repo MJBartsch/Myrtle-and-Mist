@@ -1,5 +1,14 @@
 'use client';
+import { useMode } from '@/app/context/ModeContext';
+You should update this file as well to use a relative path, just to be absolutely safe.
 
+
+http://googleusercontent.com/immersive_entry_chip/1
+
+**Why did this happen?**
+When you use `@/`, Next.js looks at the `tsconfig.json` file to see where `@` points (usually the root). If Vercel generates a fresh `tsconfig.json` during build (as seen in your logs: `We detected TypeScript... and created a tsconfig.json`), it might not have set up the `@` alias correctly by default. Using relative paths (`./` and `../`) bypasses this configuration entirely and always works.
+
+Update `app/page.tsx` and `components/ModeToggle.tsx` with the code blocks above, push to GitHub, and you should see the successful build!
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Leaf, Wind, Moon, Sparkles, ArrowRight, Mail, Sun, Droplets, Eye, Scroll } from 'lucide-react';
