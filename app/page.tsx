@@ -3,7 +3,6 @@ import { useMode } from '@/app/context/ModeContext';
 
 http://googleusercontent.com/immersive_entry_chip/1
 
-Update `app/page.tsx` and `components/ModeToggle.tsx` with the code blocks above, push to GitHub, and you should see the successful build!
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Leaf, Wind, Moon, Sparkles, ArrowRight, Mail, Sun, Droplets, Eye, Scroll } from 'lucide-react';
