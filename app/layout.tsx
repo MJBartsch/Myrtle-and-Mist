@@ -1,19 +1,24 @@
-import './globals.css'
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
+import { ModeProvider } from "./context/ModeContext";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'Myrtle & Mist - Where Plants Meet Spirit',
-  description: 'Discover the sacred connection between nurturing green life and nurturing your soul.',
-}
+  title: "Myrtle & Mist",
+  description: "Where Plants Meet Spirit",
+};
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ModeProvider>
+          {children}
+        </ModeProvider>
+      </body>
     </html>
-  )
+  );
 }
