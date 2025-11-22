@@ -1,1 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+:root {
+  --foreground-rgb: 232, 243, 241;
+  --background-start-rgb: 15, 31, 21;
+  --background-end-rgb: 26, 51, 36;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Mist Animation */
+@keyframes drift {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.mist-layer {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background: url('https://raw.githubusercontent.com/danielkvist/hosted-assets/master/fog1.png') repeat-x;
+  background-size: 50% 100%;
+  opacity: 0.1;
+  animation: drift 60s linear infinite;
+  pointer-events: none;
+}
+
+.mist-layer-2 {
+  animation-duration: 40s;
+  animation-direction: reverse;
+  opacity: 0.05;
+  top: 20%;
+}
