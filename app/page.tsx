@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useRef } from 'react';
@@ -15,6 +14,10 @@ export default function Home() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
+  // Cast motion components to any to avoid React 19 strict type conflicts
+  const MotionDiv = motion.div as any;
+  const MotionA = motion.a as any;
+
   return (
     <main className="relative bg-myrtle-900 min-h-screen text-mist-100 overflow-hidden selection:bg-myrtle-500 selection:text-white">
       
@@ -27,16 +30,16 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 border-b border-mist-500/10 bg-myrtle-900/50 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <motion.div 
+          <MotionDiv 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="text-2xl font-serif text-spirit-gold tracking-wider"
           >
             Myrtle & Mist
-          </motion.div>
+          </MotionDiv>
           <div className="hidden md:flex space-x-8 text-sm tracking-widest uppercase text-mist-200">
             {['Shop', 'Journal', 'Rituals', 'About'].map((item, i) => (
-              <motion.a
+              <MotionA
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 initial={{ opacity: 0, y: -10 }}
@@ -45,7 +48,7 @@ export default function Home() {
                 className="hover:text-spirit-gold transition-colors cursor-pointer"
               >
                 {item}
-              </motion.a>
+              </MotionA>
             ))}
           </div>
         </div>
@@ -53,11 +56,11 @@ export default function Home() {
 
       {/* Hero Section */}
       <section ref={targetRef} className="relative h-screen flex items-center justify-center z-10">
-        <motion.div 
+        <MotionDiv 
           style={{ opacity, scale }}
           className="text-center px-4 max-w-4xl mx-auto"
         >
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -72,9 +75,9 @@ export default function Home() {
               Cultivating a sacred connection between the earth beneath us 
               and the mystery within us.
             </p>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -84,8 +87,8 @@ export default function Home() {
               Explore the Shop
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-          </motion.div>
-        </motion.div>
+          </MotionDiv>
+        </MotionDiv>
       </section>
 
       {/* The Three Pillars Section */}
@@ -109,7 +112,7 @@ export default function Home() {
                 desc: "Curating environments that breathe, heal, and inspire tranquility." 
               }
             ].map((feature, index) => (
-              <motion.div
+              <MotionDiv
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -122,7 +125,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-serif text-mist-100 mb-4">{feature.title}</h3>
                 <p className="text-mist-200 leading-relaxed font-light">{feature.desc}</p>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
         </div>
@@ -132,7 +135,7 @@ export default function Home() {
       <section className="relative z-10 py-24 overflow-hidden">
         <div className="absolute inset-0 bg-myrtle-800/20" />
         <div className="max-w-7xl mx-auto px-6 relative">
-          <motion.div 
+          <MotionDiv 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -157,14 +160,14 @@ export default function Home() {
                 Watch the latest episode
               </button>
             </div>
-          </motion.div>
+          </MotionDiv>
         </div>
       </section>
 
       {/* Newsletter */}
       <section className="relative z-10 py-32">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -185,7 +188,7 @@ export default function Home() {
                 Subscribe
               </button>
             </form>
-          </motion.div>
+          </MotionDiv>
         </div>
       </section>
 
