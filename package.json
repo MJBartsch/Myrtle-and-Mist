@@ -1,15 +1,6 @@
 git add package.json
 git commit -m "fix dependency versions for next 15"
 git push
-
-### Why this happened
-The "Latest" version of Next.js (v15) was released very recently. It made some big changes:
-1.  It uses **ESLint 9** (which has a new configuration format).
-2.  It uses **React 19** (which is technically still in "Release Candidate" phase but required for Next 15).
-
-By updating your `package.json` to match these new standards, the conflict stops, and Vercel can install everything smoothly.
-
-@@ -11,13 +11,20 @@
   "dependencies": {
     "react": "^18",
     "react-dom": "^18",
