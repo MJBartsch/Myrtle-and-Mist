@@ -31,6 +31,10 @@
   "overrides": {
     "lucide-react": {
       "react": "$react"
+    },
+    "framer-motion": {
+      "react": "$react",
+      "react-dom": "$react-dom"
     }
   }
 }
