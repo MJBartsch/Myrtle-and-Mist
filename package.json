@@ -1,6 +1,4 @@
-git add package.json
-git commit -m "fix dependency versions for next 15"
-git push
+
   "dependencies": {
     "react": "^18",
     "react-dom": "^18",
